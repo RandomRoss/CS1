@@ -1,0 +1,22 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+// in class activity 1 function called sum from to
+int sum_from_to(int start, int end){ 
+    //switching start and end if end is greater than start
+    if(start > end){
+        int switch1 = end;
+        end = start;
+        start = switch1;
+    }
+    int sumtotal = 0; 
+    for(int i = start; i <= end; ++i){
+        sumtotal = sumtotal + i;
+    }
+    return sumtotal;
+}
+// calling the sum_from+to function
+int main(){
+cout << sum_from_to(4,5) << endl;
+    return 0;
+}

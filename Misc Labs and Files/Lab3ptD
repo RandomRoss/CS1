@@ -1,0 +1,28 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+#include <math.h>
+using namespace std;
+
+int main() {
+     cout << fixed << setw(0) << setprecision(0) << "Degree";
+    cout << fixed << setw(10) << setprecision(4) << "Sine";
+    cout << fixed << setw(10) << setprecision(4) << "Cosine";
+    cout << fixed << setw(25) << setprecision(4) << "Tangent" << endl;
+    
+    int degree = 0;
+    float radianangle;
+    float PI = 3.14159265358979323846;
+    
+    for (degree = 0; degree<= 360;degree = degree + 10 ){
+        
+        radianangle = degree * PI / 180.0;
+  
+             cout << fixed << setw(0) << setprecision(0) << degree;
+    cout << fixed << setw(10) << setprecision(4) << sin(radianangle);
+    cout << fixed << setw(10) << setprecision(4) << cos(radianangle);
+    cout << fixed << setw(25) << setprecision(4) << tan(radianangle) << endl;
+    
+    }
+    return 0;
+}

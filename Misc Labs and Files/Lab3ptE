@@ -1,0 +1,48 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    
+    int numstart = 0; 
+    int numend = 0; 
+    int numstep = 0;
+    int sumodd = 0;
+    int sumeven = 0;
+    int sumall = 0; 
+    int average1 = 0 ;
+    int i = 1;
+    int t = 0; 
+    int c = 0;
+    
+    while (i == 1){
+    cout << "Start Number: ";
+    cin >> numstart;
+    cout << endl ;
+    
+    cout << "Ending Number: ";
+    cin >> numend;
+    cout << endl; 
+    
+    cout << "Steps: ";
+    cin >> numstep;
+    cout << endl;
+    for(i = numstart; i <= numend; i = i + numstep){
+    if (i % 2 ==0) {
+        cout << i << "-" << "even"; 
+    }
+    else{
+         cout << i << "-" << "odd"; 
+    }
+    if (i % 3 ==0){
+    cout << ",three";
+    }
+    if (i % 5 ==0){
+    cout << ",five";
+    }
+    cout << endl; 
+    }
+return 0; 
+
+}
+}

@@ -1,0 +1,93 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+#include <cstdlib>
+  // Seed the random number, do this once, in main
+   // Call rand to get a random number between 0 and INT_MAX
+double wins = 0;
+double loses = 0;
+double accountbalance = 100;
+ double wager;
+ int k = 0; 
+int RollDie(int x){
+      int diceroll = rand()% 6 + 1 ;
+
+    return diceroll;
+    }
+    bool playonegame(int& x){
+        int i = 1;
+       do{
+           int diceroll = RollDie(x);
+           cout << "Roll #" << i << " is " << diceroll << endl;
+           if (diceroll == x){
+               cout << "** You Win! **" << endl;
+               wins = wins + 1;
+               accountbalance = accountbalance + wager;
+               k = k + 1; // ammount of times played total game 
+               return true;
+           }
+           else{
+               i = i + 1; 
+           }
+           
+       }while(i <=3);
+       loses = loses + 1;
+       cout << "** You Lose **" << endl;
+       accountbalance = accountbalance - wager;
+       k = k + 1; // ammount of times played total game
+       return false; 
+    }
+   double percentageofwins(){
+       double percentagewins = (wins / k  ) * 100;
+       
+       return percentagewins;
+   }
+   void Display(int accountbalance){
+          cout << "Account Balance: $" << accountbalance << endl; 
+           
+   }
+int main(){
+    srand(time(NULL));  
+    int x = 0;
+    int i = 1; // counter 
+    while(i == 1){
+        Display(accountbalance);
+        cout << "Enter Wager (0 to exit):"; 
+        cin >> wager;
+        cout << endl;
+        
+        if (wager == 0){
+            break;
+        }
+        if (wager > 0 && wager <= accountbalance){
+            cout << "Enter a number 1-6:";
+            cin >> x;
+            cout << endl; 
+            if (x >= 1 && x <= 6 ){
+                playonegame(x);
+                
+         }
+        }
+        else { 
+          // i = 0;   
+        }
+        
+        if(accountbalance<=0) {
+            i=0;
+        }
+    }
+    if (accountbalance == 0){
+        cout << "Game over, you are out of money!" << endl;
+    }
+    cout << "Your final account balance is $" << accountbalance << endl; 
+    double  percentagewins;
+    if(k>0)
+    percentagewins = percentageofwins();
+    else 
+    percentagewins = 0;
+
+    cout << "You won " << wins << " times out of " << k << " for a winning percentage of " << percentagewins <<"%" << endl;
+  
+    return 0;
+}
+  
